@@ -19,6 +19,12 @@ public class ProductManager {
                 if (command.equalsIgnoreCase("addproduct")) {
                     addProduct(args);
                 }
+                if (command.equalsIgnoreCase("listproducts")){
+                    listProducts();
+                }
+                if (command.equalsIgnoreCase("updateproduct")){
+                    updateProduct(args);
+                }
              }
          } catch (Exception e){
              System.out.println("Error: " + e.getMessage());
@@ -39,6 +45,15 @@ public class ProductManager {
         List<Product> products = productcontroller.listProduct();
         for (Product product : products) {
             System.out.println(product);
+        }
+    }
+
+    private static void updateProduct(String[] args) throws ApplicationException {
+        if (args.lenght != 5){
+            throw (new ApplicationException("parameters: <productname> <price> <size> <weight>"));
+        }
+        else{
+            productcontroller.updateProduct(args[1], Integer.parseInt(args[2]),Integer.parseInt(args[3]),Integer.parseInt(args[4]));
         }
     }
 }
