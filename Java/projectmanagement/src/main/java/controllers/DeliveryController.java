@@ -3,6 +3,7 @@ package controllers;
 import dao.DeliveryDAO;
 import model.Customer;
 import model.Delivery;
+import utils.ApplicationException;
 
 import java.util.Date;
 
@@ -31,5 +32,11 @@ public class DeliveryController {
                 System.out.println("Error: " + e.getMessage());
             }
         }
-
+    public Delivery getDeliveryId(Integer deliveryId) throws ApplicationException {
+        try {
+            return deliveryDAO.getDeliveryId(deliveryId);
+        } catch (Exception e) {
+            throw (new ApplicationException("Getting delivery failed.", e));
+        }
+    }
 }

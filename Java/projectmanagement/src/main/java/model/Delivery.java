@@ -37,7 +37,16 @@ public class Delivery extends Model {
     @NotNull
     private String deliveryAddress;
 
-    
+    @Override
+    public String toString() {
+        return "Delivery{" +
+                "deliveryId=" + deliveryId +
+                ", maxWeight='" + maxWeight + '\'' +
+                ", customerId='" + customerId + '\'' +
+                ", deliveryDate=" + deliveryDate +
+                ", deliveryAddress='" + deliveryAddress + '\'' +
+                '}';
+    }
 
     public Delivery() {}
 
