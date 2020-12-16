@@ -50,8 +50,12 @@ public class DeliveryManager {
 
     private static void listDeliveries() {
         List<Delivery> deliveries = deliveryController.listDeliveries();
-        for (Delivery Delivery : deliveries) {
-            System.out.println(Delivery);
+        if (deliveries.size() == 0){
+            System.out.println("No deliveries");
+        } else {
+            for (Delivery Delivery : deliveries) {
+                System.out.println(Delivery);
+            }
         }
     }
 }
