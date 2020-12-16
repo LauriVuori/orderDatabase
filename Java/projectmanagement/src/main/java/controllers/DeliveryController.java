@@ -5,6 +5,8 @@ import model.Customer;
 import model.Delivery;
 import utils.ApplicationException;
 import java.util.List;
+import utils.DateTimeUtils;
+import java.util.List;
 import java.util.Date;
 
 public class DeliveryController {
@@ -55,7 +57,12 @@ public class DeliveryController {
                 throw (new ApplicationException("Getting delivery failed.", e));
             }
         }
+  
     public List<Delivery> listCustomerDeliveries(Integer customerId) {
         return deliveryDAO.listCustomerDeliveries(customerId);
     }
+  
+        public List<Delivery> listDeliveries() {
+            return deliveryDAO.listDeliveries();
+        }
 }

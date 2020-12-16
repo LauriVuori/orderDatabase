@@ -29,6 +29,7 @@ public class OrdersController {
             }
                 try {
                     Delivery delivery = deliverycontroller.getDeliveryId(deliveryId);
+                    System.out.println(delivery);
                     if (delivery != null) {
                         orders.setDeliveryId(delivery);
                     }
@@ -42,4 +43,8 @@ public class OrdersController {
             System.out.println("Error in orders: " + e.getMessage());
         }
     }
+    public List<Orders> listOrders() {
+        return ordersDAO.listOrders();
+    }
 }
+

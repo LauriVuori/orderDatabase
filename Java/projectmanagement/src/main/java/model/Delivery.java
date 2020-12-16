@@ -39,10 +39,10 @@ public class Delivery extends Model {
 
     @Override
     public String toString() {
-        return "Delivery{" +
-                "deliveryId=" + deliveryId +
+        return "delivery{" +
+                "customerId=" + customerId +
+                ", deliveryId='" + deliveryId + '\'' +
                 ", maxWeight='" + maxWeight + '\'' +
-                ", customerId='" + customerId + '\'' +
                 ", deliveryDate=" + deliveryDate +
                 ", deliveryAddress='" + deliveryAddress + '\'' +
                 '}';
