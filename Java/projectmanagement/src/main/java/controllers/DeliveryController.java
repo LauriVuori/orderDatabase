@@ -6,6 +6,7 @@ import model.Delivery;
 import utils.ApplicationException;
 import utils.DateTimeUtils;
 
+
 import java.util.Date;
 
 public class DeliveryController {
@@ -56,4 +57,12 @@ public class DeliveryController {
                 throw (new ApplicationException("Getting delivery failed.", e));
             }
         }
+
+    public Delivery getDeliveryId(Integer deliveryId) throws ApplicationException {
+        try {
+            return deliveryDAO.getDeliveryId(deliveryId);
+        } catch (Exception e) {
+            throw (new ApplicationException("Getting delivery failed.", e));
+        }
+    }
 }
