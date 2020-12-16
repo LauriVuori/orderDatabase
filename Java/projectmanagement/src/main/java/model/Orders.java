@@ -38,7 +38,15 @@ public class Orders extends Model {
 
         }
     }
-
+    @Override
+    public String toString() {
+        return "order{" +
+                "orderId=" + orderId +
+                ", deliveryId='" + deliveryId + '\'' +
+                ", customerId='" + customerId + '\'' +
+                ", orderDate=" + orderDate +
+                '}';
+    }
     // sets
     public void setCustomerId(Customer customer) {
         this.customerId = customer.getCustomerId();
@@ -48,7 +56,12 @@ public class Orders extends Model {
         this.deliveryId = delivery.getDeliveryId();
     }
 
+    public void setOrderDate(Date orderDate) {this.orderDate = orderDate; }
+
     public Integer getOrderId(){
         return this.orderId;
     }
+
+
+
 }
