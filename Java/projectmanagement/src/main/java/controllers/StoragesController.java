@@ -2,7 +2,7 @@ package controllers;
 
 import dao.StoragesDAO;
 import model.Storages;
-
+import java.util.List;
 
 
 
@@ -21,5 +21,7 @@ public class StoragesController {
         }
     } 
 
-
+    public List<Storages> listStorages() {
+        return storagesDAO.listStorages();
+    }
 }

@@ -16,7 +16,7 @@ import javax.persistence.Id;
 @Entity
 public class Storages extends Model {
     @Id
-    private Integer storagelocation; // auto increment
+    private Integer storageLocation; // auto increment
     @NotNull
     private Integer capacity;
     private String productName;
@@ -26,6 +26,15 @@ public class Storages extends Model {
     public Storages(Integer capacity, String productname) {
         this.capacity = capacity;
         this.productName = productname;
+    }
+
+        @Override
+    public String toString() {
+        return "Storages{" +
+                "storagelocation=" + storageLocation +
+                ", capacity='" + capacity + '\'' +
+                ", productName='" + productName + '\'' +
+                '}';
     }
     // sets
     public void setCapacity(Integer capacity){
@@ -42,7 +51,7 @@ public class Storages extends Model {
     }
 
     public Integer getStorageLocation(){
-    return this.storagelocation;
+    return this.storageLocation;
 }
 
     public String getProductname(){

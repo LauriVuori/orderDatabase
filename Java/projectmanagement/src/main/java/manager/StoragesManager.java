@@ -1,8 +1,11 @@
 package manager;
 
 import controllers.StoragesController;
+import model.Storages;
 import utils.ApplicationException;
 import utils.DatabaseMigrator;
+
+import java.util.List;
 
 public class StoragesManager {
 
@@ -16,6 +19,9 @@ public class StoragesManager {
                 if (command.equalsIgnoreCase("addstorages")) {
                     addStorages(args);
                 }
+                if (command.equalsIgnoreCase("liststorages")) {
+                    listStorages();
+                }
             }
         } catch (Exception e){
             System.out.println("Error: " + e.getMessage());
@@ -28,6 +34,12 @@ public class StoragesManager {
         }
         else{
             storagescontroller.addStorages(Integer.parseInt(args[1]), args[2]);
+        }
+    }
+    private static void listStorages(){
+        List<Storages> storagess = storagescontroller.listStorages();
+        for (Storages storages : storagess) {
+            System.out.println(storages);
         }
     }
 }
