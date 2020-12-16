@@ -19,12 +19,18 @@ public class ProductManager {
                 if (command.equalsIgnoreCase("addproduct")) {
                     addProduct(args);
                 }
+
                 if (command.equalsIgnoreCase("listproducts")){
                     listProducts();
                 }
                 if (command.equalsIgnoreCase("updateproduct")){
                     updateProduct(args);
                 }
+
+                if (command.equalsIgnoreCase("listproducts")) {
+                    listProducts();
+                }
+
              }
          } catch (Exception e){
              System.out.println("Error: " + e.getMessage());
