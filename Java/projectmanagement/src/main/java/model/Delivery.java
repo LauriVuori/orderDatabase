@@ -37,7 +37,16 @@ public class Delivery extends Model {
     @NotNull
     private String deliveryAddress;
 
-    
+    @Override
+    public String toString() {
+        return "Customer{" +
+                "customerId=" + customerId +
+                ", deliveryId='" + deliveryId + '\'' +
+                ", maxWeight='" + maxWeight + '\'' +
+                ", deliveryDate=" + deliveryDate +
+                ", deliveryAddress='" + deliveryAddress + '\'' +
+                '}';
+    }
 
     public Delivery() {}
 
@@ -47,7 +56,7 @@ public class Delivery extends Model {
         try {
             this.deliveryDate= DateTimeUtils.formatDDMMYYDate(deliveryDate);
         } catch (ApplicationException e) {
-
+            System.out.println("Error: deliverydate in delivery.java " + e.getMessage());
         }
     }
     // sets

@@ -1,6 +1,7 @@
 package manager;
 
 import controllers.DeliveryController;
+import model.Delivery;
 import utils.ApplicationException;
 import utils.DatabaseMigrator;
 import utils.DateTimeUtils;
@@ -17,6 +18,12 @@ public class DeliveryManager {
                 if (command.equalsIgnoreCase("adddelivery")) {
                     addDelivery(args);
                 }
+                if (command.equalsIgnoreCase("updatedelivery")) {
+                    updateDelivery(args);
+                }
+                /*if (command.equalsIgnoreCase("listdelivery")) {
+                    listDelivery(args);
+                }*/
             }
         } catch (Exception e){
             System.out.println("Error: " + e.getMessage());
@@ -29,6 +36,14 @@ public class DeliveryManager {
         }
         else {
             deliveryController.addDelivery(DateTimeUtils.formatDDMMYYDate(args[1]), args[2], Integer.parseInt(args[3]), Integer.parseInt(args[4]));
+        }
+    }
+
+    private static void updateDelivery(String[] args) throws ApplicationException {
+        if(args.length !=5) {
+            throw (new ApplicationException("parameter: <deliveryDate> <deliveryAddress> <maxWeight> <deliveryId>"));
+        } else {
+            deliveryController.updateDelivery(DateTimeUtils.formatDDMMYYDate(args[1]), args[2], Integer.parseInt(args[3]), Integer.parseInt(args[4]));
         }
     }
 }
