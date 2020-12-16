@@ -46,6 +46,19 @@ public class Product extends Model {
         this.size = size;
         this.weight = weight;
     }
+
+    @Override
+    public String toString() {
+        return "Product{" +
+                "productId=" + productId +
+                ", productName='" + productName + '\'' +
+                ", price='" + price + '\'' +
+                ", size=" + size +
+                ", weight='" + weight + '\'' +
+                ", storageLocation='" + storageLocation + '\'' +
+                '}';
+    }
+
     // sets
     public void setStorageLocation(Storages storages){
         this.storageLocation = storages.getStorageLocation();
