@@ -26,4 +26,9 @@ public class ProductDAO{
             throw new ApplicationException("Error in finding the product");
         }
     }
+
+    public Product updateProduct(Product product) {
+        product.update();
+        return product;
+    }
 }

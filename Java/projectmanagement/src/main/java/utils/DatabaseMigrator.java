@@ -8,7 +8,7 @@ public class DatabaseMigrator {
 
 
     public static void doMigrations() {
-        Flyway flyway = Flyway.configure().dataSource("jdbc:mysql://localhost:3306/projectmanagement?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC", "shopadmin", "password").load();
+        Flyway flyway = Flyway.configure().dataSource("jdbc:mysql://localhost:3306/projectmanagement?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC", "root", "password").load();
         flyway.migrate();
     }
 

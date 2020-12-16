@@ -9,14 +9,14 @@ import utils.ApplicationException;
 
 public class ProductController {
     ProductDAO productDAO = new ProductDAO();
-    public void addProduct(String productname, Integer price, Integer size, Integer weight) {
+    public void addProduct(String productName, Integer price, Integer size, Integer weight) {
         try{
             Product product = new Product();
-            product.setProductname(productname);
+            product.setProductname(productName);
             product.setPrice(price);
             product.setSize(size);
             product.setWeight(weight);
-
+            productDAO.addProduct(product);
         } catch (Exception e) {
                 System.out.println("<<<Controller<<<<<Error setting storagelocation " + e.getMessage());
         }
@@ -34,15 +34,16 @@ public class ProductController {
         return productDAO.listProduct();
     }
 
-    public void updateProduct(Integer productId, String productname, Integer price, Integer size, Integer weight) {
+    public void updateProduct(Integer productId, String productName, Integer price, Integer size, Integer weight) {
         try {
             Product product = getProductId(productId);
             if (product != null) {
                 try{
-                    product.setProductname(productname);
+                    product.setProductname(productName);
                     product.setPrice(price);
                     product.setSize(size);
                     product.setWeight(weight);
+                    productDAO.updateProduct(product);
                 } catch (Exception e){
                     System.out.println("Error updating product: " + e.getMessage());
                 }

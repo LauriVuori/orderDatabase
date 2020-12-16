@@ -29,7 +29,6 @@ public class OrdersController {
             }
                 try {
                     Delivery delivery = deliverycontroller.getDeliveryId(deliveryId);
-                    System.out.println(delivery);
                     if (delivery != null) {
                         orders.setDeliveryId(delivery);
                     }

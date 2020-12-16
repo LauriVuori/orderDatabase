@@ -55,11 +55,11 @@ public class ProductManager {
     }
 
     private static void updateProduct(String[] args) throws ApplicationException {
-        if (args.lenght != 5){
-            throw (new ApplicationException("parameters: <productname> <price> <size> <weight>"));
+        if (args.length != 6){
+            throw (new ApplicationException("parameters: <productId> <productname> <price> <size> <weight>"));
         }
         else{
-            productcontroller.updateProduct(args[1], Integer.parseInt(args[2]),Integer.parseInt(args[3]),Integer.parseInt(args[4]));
+            productcontroller.updateProduct(Integer.parseInt(args[1]), args[2], Integer.parseInt(args[3]), Integer.parseInt(args[4]), Integer.parseInt(args[5]));
         }
     }
 }
