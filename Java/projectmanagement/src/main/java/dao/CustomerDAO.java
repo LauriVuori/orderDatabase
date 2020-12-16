@@ -10,7 +10,7 @@ import java.util.List;
  * Customer CustomerManager
  */
 public class CustomerDAO{
-    public void addCustomer(Customer customer){
+    public void saveCustomer(Customer customer){
         try {
             customer.save();
         } catch (Exception e) {

@@ -25,6 +25,9 @@ public class CustomerManager {
                 if (command.equalsIgnoreCase("listcustomer")){
                     listCustomers();
                 }
+                if (command.equalsIgnoreCase("updatecustomer")){
+                    updateCustomer(args);
+                }
             }
         } catch (Exception e){
             System.out.println("Error: " + e.getMessage());
@@ -44,6 +47,15 @@ public class CustomerManager {
         List<Customer> customers = customercontroller.listCustomer();
         for (Customer customer : customers) {
             System.out.println(customer);
+        }
+    }
+    private static void updateCustomer(String[] args) throws ApplicationException {
+        if (args.length != 6){
+            throw (new ApplicationException("parameters: <customerId> <company> <forename> <surname> <address>"));
+        }
+        else{
+            // System.out.println("test");
+            customercontroller.updateCustomer(Integer.parseInt(args[1]), args[2], args[3], args[4], args[5]);
         }
     }
 }

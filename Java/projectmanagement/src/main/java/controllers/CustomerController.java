@@ -21,7 +21,7 @@ public class CustomerController {
             customer.setForename(forename);
             customer.setSurname(surname);
             customer.setAddress(address);
-            customerDAO.addCustomer(customer);
+            customerDAO.saveCustomer(customer);
         } catch (Exception e){
             System.out.println("Virhe: " + e.getMessage());
         }
@@ -39,5 +39,25 @@ public class CustomerController {
         }
     }
 
-
+    public void updateCustomer(Integer customerId, String company, String forename, String surname, String address) {
+        try {
+            Customer customer = getCustomerId(customerId);
+            if (customer != null) {
+                try{
+                    customer.setCompany(company);
+                    customer.setForename(forename);
+                    customer.setSurname(surname);
+                    customer.setAddress(address);
+                    customerDAO.saveCustomer(customer);
+                } catch (Exception e){
+                    System.out.println("Error updating customer data: " + e.getMessage());
+                }
+            }
+            else{
+                System.out.println("Cannot find customer, try another id.");
+            }
+        } catch (Exception e) {
+            System.out.println("Error finding customer: " + e.getMessage());
+        }
+    }
 }
