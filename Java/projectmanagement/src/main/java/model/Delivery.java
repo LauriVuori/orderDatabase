@@ -56,7 +56,7 @@ public class Delivery extends Model {
         try {
             this.deliveryDate= DateTimeUtils.formatDDMMYYDate(deliveryDate);
         } catch (ApplicationException e) {
-
+            System.out.println("Error: deliverydate in delivery.java " + e.getMessage());
         }
     }
     // sets
