@@ -28,6 +28,9 @@ public class CustomerManager {
                 if (command.equalsIgnoreCase("updatecustomer")){
                     updateCustomer(args);
                 }
+                if (command.equalsIgnoreCase("listcustomerdeliveries")){
+                    listCustomerDeliveries(args);
+                }
             }
         } catch (Exception e){
             System.out.println("Error: " + e.getMessage());
@@ -58,4 +61,14 @@ public class CustomerManager {
             customercontroller.updateCustomer(Integer.parseInt(args[1]), args[2], args[3], args[4], args[5]);
         }
     }
+
+    private static void listCustomerDeliveries(String[] args) throws ApplicationException {
+        if (args.length != 2){
+            throw (new ApplicationException("parameters: <customerId>"));
+        }
+        else{
+            customercontroller.listCustomerDeliveries(Integer.parseInt(args[1]));
+        }
+    }
+    
 }

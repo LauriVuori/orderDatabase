@@ -3,6 +3,7 @@ package dao;
 import io.ebean.DB;
 import io.ebean.Expr;
 import model.Customer;
+import model.Delivery;
 import utils.ApplicationException;
 
 import java.util.List;
@@ -28,5 +29,13 @@ public class CustomerDAO{
         } catch (Exception e) {
             throw new ApplicationException("Error in finding the customer.");
         }
+    }
+
+    public Customer listCustomerDeliveries(Integer customerId) {
+        Customer customer = DB.find(Customer.class).where(Expr.eq("customer_id", customerId)).findOne();
+        Delivery delivery = DB.find(Delivery.class).where(Expr.eq("customer_id", customerId)).findOne();
+        System.out.println(customer);
+        System.out.println(delivery);
+        return customer;
     }
 }
