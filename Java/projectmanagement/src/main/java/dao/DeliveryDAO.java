@@ -41,6 +41,10 @@ public class DeliveryDAO {
         }
     }
 
+
+    public List<Delivery> listCustomerDeliveries(Integer customerId) {
+        return DB.find(Delivery.class).where(Expr.eq("customer_id", customerId)).findList();
+    }
     public List<Delivery> listDeliveries(){
         return DB.find(Delivery.class).findList();
     }

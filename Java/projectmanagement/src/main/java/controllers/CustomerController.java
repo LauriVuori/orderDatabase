@@ -2,6 +2,7 @@ package controllers;
 
 import dao.CustomerDAO;
 import model.Customer;
+import model.Delivery;
 import utils.ApplicationException;
 
 import java.util.List;
@@ -13,6 +14,7 @@ import java.util.List;
 public class CustomerController {
 
     CustomerDAO customerDAO = new CustomerDAO();
+    private static DeliveryController deliverycontroller = new DeliveryController();
 
     public void addCustomer(String company, String forename, String surname, String address) {
         try{
@@ -58,6 +60,25 @@ public class CustomerController {
             }
         } catch (Exception e) {
             System.out.println("Error finding customer: " + e.getMessage());
+        }
+    }
+
+    public void listCustomerDeliveries(Integer customerId) throws ApplicationException {
+        Customer customer = getCustomerId(customerId);
+        if (customer != null) {
+            System.out.println(customer);
+            List<Delivery> deliveries = deliverycontroller.listCustomerDeliveries(customerId);
+            if (deliveries.size() != 0) {
+                for (Delivery delivery : deliveries) {
+                    System.out.println(delivery);
+                }
+            }
+            else{
+                System.out.println("Cant find any deliveries");
+            }
+        }
+        else{
+            System.out.println("Customer not found");
         }
     }
 }
